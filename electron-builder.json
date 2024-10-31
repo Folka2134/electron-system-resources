@@ -1,6 +1,7 @@
 {
   "appId": "com.folka.electron-system-resources",
   "files": ["dist-electron", "dist-react"],
+  "extraResources": ["dist-electron/preload.cjs"],
   "icon": "./desktopIcon.png",
   "mac": {
     "target": "dmg"
