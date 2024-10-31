@@ -1,9 +1,21 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import reactLogo from "./assets/react.svg";
 import "./App.css";
 
 function App() {
   const [count, setCount] = useState(0);
+
+  // Use function exposed from preload script to get static data
+  window.electron.getStaticData().then((data) => {
+    console.log("Received data:", data);
+  });
+
+  // Use function exposed from preload script and subscribe to an event
+  useEffect(() => {
+    window.electron.subscribeStatistics((stats) =>
+      console.log("Stats:", stats)
+    );
+  }, []);
 
   return (
     <>
